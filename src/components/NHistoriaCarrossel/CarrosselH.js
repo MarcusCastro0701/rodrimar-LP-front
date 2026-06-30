@@ -44,34 +44,34 @@ export default Carousel;
 const CarouselContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   text-align: center;
   width: 40vw;
 
   @media (max-width: 1200px) {
-    margin-top:-10.5vh;
-    width: 60vw;
+    width: 82vw;
+    margin-top: 0;
   }
 `;
 
 const Image = styled.div`
-  max-height: 500px;
-  min-width: 30vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   img {
-    box-shadow: rgba(0, 0, 0, 0.8) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    max-width: 30vw;
-    max-height: 500px;
-    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 12px 28px;
+    width: 28vw;
+    max-height: 340px;
+    object-fit: cover;
+    border-radius: 8px;
     opacity: ${(props) => props.opc};
-    transition: opacity 0.4s; 
+    transition: opacity 0.4s;
   }
   @media (max-width: 1200px) {
-    margin-top:10vh;
-    img{
-      max-height: 500px;
-       min-width: 55vw;
+    img {
+      width: 82vw;
+      max-height: 220px;
     }
   }
-  
 `;
 

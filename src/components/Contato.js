@@ -1,180 +1,160 @@
-import { MDBCol } from 'mdb-react-ui-kit';
 import React from 'react';
-import { FaPhone, FaSearchPlus } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
-import styled from "styled-components";
-import rodrimar from "../assets/images/newLogoTRNoBG.png";
-export default function Contato(){
-    const SearchIcon = styled(FaSearchPlus)`
-      font-size: 30px;
-      margin-right: 0.5vw;
-      color: white;
-      transition: transform 0.2s; 
-      
-      &:hover {
-        transform: scale(1.1);
-      }
-    `;
-  
-   const PhoneIcon= styled(FaPhone)`
-  font-size: 30px;
-  margin-right: 0.5vw;
-  color: white;
-  transition: transform 0.2s; 
-  
-  &:hover {
-    transform: scale(1.1);
-  }
-  `;
+import { FaPhone, FaLocationDot } from 'react-icons/fa6';
+import { MdEmail } from 'react-icons/md';
+import styled from 'styled-components';
 
-const EmailIcon= styled(MdEmail)`
-font-size: 30px;
-margin-right: 0.5vw;
-color: white;
-transition: transform 0.2s; 
+export default function Contato() {
+  return (
+    <Section id="contato">
+      <Inner>
+        <Left>
+          <Eyebrow>Contato e Endereço</Eyebrow>
+          <Title>Estamos em Lavras,<br />Minas Gerais.</Title>
+          <InfoList>
+            <InfoItem>
+              <LocationIcon />
+              <span>Rua Rosa Kasinski, 1195 — Distrito Industrial, Lavras-MG, 37205-842</span>
+            </InfoItem>
+            <InfoItem>
+              <PhoneIcon />
+              <span>(35) 3821-6262</span>
+            </InfoItem>
+            <InfoItem>
+              <EmailIcon />
+              <a href="mailto:comercial@rodrimar.net">comercial@rodrimar.net</a>
+            </InfoItem>
+          </InfoList>
+        </Left>
 
-&:hover {
-  transform: scale(1.1);
+        <Right>
+          <MapFrame
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3718.030736127133!2d-44.978613!3d-21.2702509!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9ffd88fff8038d%3A0x6203fb732a8a547a!2sTransporte%20Rodrimar!5e0!3m2!1spt-BR!2sbr!4v1693863803794!5m2!1spt-BR!2sbr"
+            title="Localização Transporte Rodrimar"
+            loading="lazy"
+            allowFullScreen
+          />
+        </Right>
+      </Inner>
+    </Section>
+  );
 }
+
+const Section = styled.section`
+  background: var(--warm-card);
+  padding: 100px 0;
+
+  @media (max-width: 768px) {
+    padding: 64px 0;
+  }
 `;
 
+const Inner = styled.div`
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
 
-    return(
-
-        <Container id="1">
-            <Left>
-            <h1>{"Contato e endereço"}</h1>
-            <MDBCol lg='6' className='my-4'>
-        <iframe
-          src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3718.030736127133!2d-44.978613!3d-21.2702509!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9ffd88fff8038d%3A0x6203fb732a8a547a!2sTransporte%20Rodrimar!5e0!3m2!1spt-BR!2sbr!4v1693863803794!5m2!1spt-BR!2sbr'
-          className='w-100'
-          height='400'
-          loading='lazy'
-        ></iframe>
-      </MDBCol>
-            </Left>
-            <Right>
-            <p>
-                <SearchIcon color={" #041c44"}/>
-                Endereço: Rua Rosa Kasinski, 1195 - Distrito Industrial,<br></br> Lavras - MG, 37205-842
-            </p>
-            <p>
-            <PhoneIcon color={" #041c44"}/>
-            Telefone: (35) 3821-6262
-            </p>
-            <p>
-                <EmailIcon color={" #041c44"}/>
-                Email: comercial@rodrimar.net 
-            </p>
-
-    <img src={rodrimar}/>
-            </Right>
-        </Container >
-
-    )
-
-}
-
-
-const Container = styled.div `
-display: flex;
-justify-content:center;
-width: 100%;
-height: 80vh;
-background: linear-gradient(to right, rgba(255, 255, 255, 0.7)50%, rgba(255, 255, 255, 0.7)50%), url("https://images.pexels.com/photos/977213/pexels-photo-977213.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1") no-repeat center center / cover;
-box-shadow: rgba(0,0,0) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-h1 {
-        padding-left: 1vw;
-        border-left: 8px solid #09DCFF;
-        font-size: 32px;
-        font-weight: 600;
-        width: 100%;
-        margin: 0 3vw;
-        margin-top:10vh;
-        color:  #041c44 !important;
-        height:32px;
-    }
-    p {
-    color:  #041c44 !important;;
-    margin: 2vh 3vw;
-    font-size:25px;
-    line-height: 1.5;
-    font-weight: 700;
-    width:30vw;
-    display:flex;
-    align-items:center;
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    gap: 48px;
   }
-  @media (max-width: 1200px) {
-    display:flex;
-  flex-direction: column;
-  width: 100%;
-  h1{
-    margin-top: 5vh;
-    font-size:6vw;
-    width:80vw;
+
+  @media (max-width: 768px) {
+    padding: 0 24px;
   }
-    p{
-      font-size:1.6vh;
-      height:10vh;
-      width:80vw;
-      margin: 3vh 3vw;
-    }
-  }
-`
+`;
 
 const Left = styled.div`
-width:40vw;
-backdrop-filter: blur(5px);
-img{
-    margin-left: 5vw;
-    &:hover {
-    transform: scale(1.1);
+  flex: 1;
+`;
+
+const Eyebrow = styled.p`
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 16px;
+`;
+
+const Title = styled.h2`
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--navy-deep);
+  margin-bottom: 40px;
+`;
+
+const InfoList = styled.ul`
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+`;
+
+const InfoItem = styled.li`
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-muted);
+
+  a {
+    color: var(--navy-deep);
+    font-weight: 500;
+    transition: color 0.2s;
+
+    &:hover { color: var(--amber); }
   }
-}
-iframe{
-    border-radius: 10px;
-    margin: 4vw 3vh;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    height: 40vh;
-    width: 40vw;
-    @media (max-width: 1200px) {
-      height: 20vh;
-    width: 75vw;
-    margin-top: 5vh;
-  }}
-  @media (max-width:1200px) {
-  margin:2vh 4vw;
-}
-`
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+`;
+
+const LocationIcon = styled(FaLocationDot)`
+  flex-shrink: 0;
+  margin-top: 3px;
+  font-size: 18px;
+  color: var(--amber);
+`;
+
+const PhoneIcon = styled(FaPhone)`
+  flex-shrink: 0;
+  margin-top: 4px;
+  font-size: 16px;
+  color: var(--amber);
+`;
+
+const EmailIcon = styled(MdEmail)`
+  flex-shrink: 0;
+  margin-top: 2px;
+  font-size: 20px;
+  color: var(--amber);
+`;
+
 const Right = styled.div`
-width:40vw;
-display:flex;
-margin-left: 5vw;
-justify-content:center;
-flex-direction: column;
-  img{
-  height:18vh;
-  width:10vw;
-  margin-left: 27%;
-  &:hover {
-    transform: scale(1.1);
-  }
-  @media (max-width:1200px) {
- display:none;
-}
-}
-  p{
-    font-size:1.4vw;
-}
-@media (max-width: 1200px) {
-    width:40vw;
-    height:40vw;
-    backdrop-filter: none;
-    margin:11vh 7vw;
-    p{
-      font-size:4.5vw;
-    }
-  }
-`
+  flex-shrink: 0;
+  width: 500px;
 
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
+`;
 
+const MapFrame = styled.iframe`
+  width: 100%;
+  height: 380px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(7,30,61,0.12);
+
+  @media (max-width: 768px) {
+    height: 240px;
+  }
+`;

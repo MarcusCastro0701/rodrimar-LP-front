@@ -1,425 +1,262 @@
-import styled from "styled-components";
-import React, { useState, useEffect } from 'react';
-import {BsArrowDownShort} from "react-icons/bs";
-import {TbTargetArrow} from "react-icons/tb";
-import {AiOutlineEye} from "react-icons/ai"
-import {BiDonateHeart} from "react-icons/bi"
-import scroll from "../hooks/Scroll";
-import caminhao3 from "../assets/images/caminhao3.jpg";
-import { FaCheck } from "react-icons/fa6";
-import { FaArrowUpShortWide } from "react-icons/fa6";
+import React from 'react';
+import styled from 'styled-components';
 
+const VALUES = [
+  { name: 'Pessoas',          desc: 'As pessoas certas para as funções certas são imprescindíveis para o sucesso da empresa.' },
+  { name: 'Comprometimento',  desc: 'Fazer o seu melhor, executar o trabalho com assertividade e buscar sempre o melhor resultado.' },
+  { name: 'Responsabilidade', desc: 'Cumprir todas as obrigações assumidas.' },
+  { name: 'Profissionalismo', desc: 'Respeitar as normas da empresa e manter um bom relacionamento interpessoal.' },
+  { name: 'Sustentabilidade', desc: 'Focar no crescimento a longo prazo, com práticas que reduzam os impactos socioambientais.' },
+];
 
+const PRINCIPLES = [
+  'Entender e atender as necessidades e expectativas dos nossos clientes e partes interessadas.',
+  'Incentivar e prover recursos para a melhoria contínua do sistema de gestão da qualidade.',
+  'Comprometer-se com todos os requisitos legais e estatutários aplicáveis ao negócio.',
+];
 
-export default function Valores(){
+export default function Valores() {
+  return (
+    <Section id="valores">
+      <Inner>
 
-    return(
-        <Container>
-            
-            <span>
+        <MissaoBlock>
+          <BlockLabel>Missão</BlockLabel>
+          <MissaoQuote>
+            "Atender as necessidades dos nossos clientes, oferecendo serviços de
+            qualidade, transportando com segurança e gerando valores sustentáveis
+            a todas as partes."
+          </MissaoQuote>
+        </MissaoBlock>
 
-                <SubContainer>
-                    <div>
-                        <Target/>
-                        <h1>MISSÃO</h1>
-                    </div>
-                    <p>
-                    Atender as necessidades dos nosso clientes, oferecendo serviços de qualidade, transportando com segurança e gerando valores sustentáveis a todas as partes.
-                    </p>
-                </SubContainer>
+        <Divider />
 
-                <SubContainerValues>
+        <MidRow>
+          <ValoresBlock>
+            <BlockLabel>Valores</BlockLabel>
+            <ValoresList>
+              {VALUES.map(({ name, desc }) => (
+                <ValueItem key={name}>
+                  <Dot />
+                  <div>
+                    <ValueName>{name}</ValueName>
+                    <ValueDesc>{desc}</ValueDesc>
+                  </div>
+                </ValueItem>
+              ))}
+            </ValoresList>
+          </ValoresBlock>
 
-                <div>
-                    <Values/>
-                    <h1>VALORES</h1>
-                </div>
+          <VisaoBlock>
+            <BlockLabel>Visão</BlockLabel>
+            <VisaoQuote>
+              "Ser uma transportadora de referência no mercado nacional, reconhecida
+              pela excelência dos serviços prestados."
+            </VisaoQuote>
+          </VisaoBlock>
+        </MidRow>
 
-                <h2>
-                    {<Check/>} Pessoas
-                </h2>
-                <p>
-                    As pessoas certas para as funções certas são imprescindíveis para o sucesso da empresa.
-                </p>
+        <Divider />
 
-                <h2>
-                    {<Check/>} Comprometimento
-                </h2>
-                <p>
-                    Fazer o seu melhor, executar o seu trabalho com assertividade e buscar sempre o melhor resultado.
-                </p>
+        <PolicyBlock>
+          <PolicyHeader>
+            <BlockLabel>Política de Qualidade</BlockLabel>
+            <PolicyLead>
+              Assegurar a satisfação dos nossos clientes através do fornecimento
+              de soluções logísticas sustentáveis. Nossa política está estruturada
+              em três princípios fundamentais:
+            </PolicyLead>
+          </PolicyHeader>
+          <PrincipleGrid>
+            {PRINCIPLES.map((text, i) => (
+              <Principle key={i}>
+                <PrincipleNum>0{i + 1}</PrincipleNum>
+                <PrincipleText>{text}</PrincipleText>
+              </Principle>
+            ))}
+          </PrincipleGrid>
+        </PolicyBlock>
 
-                <h2>
-                    {<Check/>} Responsabilidade
-                </h2>
-                <p>
-                    Cumprir todas as obrigações.
-                </p>
-
-                <h2>
-                    {<Check/>} Profissionalismo
-                </h2>
-                <p>
-                    Respeitar as normas da empresa e manter um bom relacionamento interpessoal.
-                </p>
-
-                <h2>
-                    {<Check/>} Sustentabilidade
-                </h2>
-                <p>
-                    Focar no crescimento a longo prazo, com práticas sustentáveis e ações que reduzam os impactos socioambientais. 
-                </p>
-
-                </SubContainerValues>
-
-                <SubContainer>
-                    <div>
-                        <Eye/>
-                        <h1>VISÃO</h1>
-                    </div>
-                    <p>
-                    Ser uma transportadora de referência no mercado nacional, reconhecida pela excelência dos serviços prestados.
-                    </p>
-                </SubContainer>
-
-            </span>
-
-            <SubContainerPolicy>
-
-                <div>
-                    <Arrow/>
-                    <h1>POLÍTICA DE QUALIDADE</h1>
-                </div>
-
-                <p>
-                    Assegurar a satisfação dos nossos clientes através do fornecimento de soluções logísticas sustentáveis. 
-                </p>
-
-                <h2>
-                    Nossa política está estruturada em três princípios fundamentais:
-                </h2>
-
-                <p>
-                    {<Check/>} Entender e atender as necessidades e expectativas dos nossos clientes e de partes interessadas;
-                </p>
-
-                <p>
-                    {<Check/>} Incentivar e prover recursos para a melhoria contínua do sistema de gestão da qualidade;
-                </p>
-
-                <p>
-                    {<Check/>} Comprometer-se com todos os requisitos legais e estatutários aplicáveis ao seu negócio.  
-                </p>
-
-            </SubContainerPolicy>
-
-        </Container>
-    )
-
+      </Inner>
+    </Section>
+  );
 }
 
-const Container = styled.div `
-    display: flex;
-    justify-content: center;
-    align-items: center;
+const Section = styled.section`
+  background: var(--navy-deep);
+  padding: 100px 0;
+
+  @media (max-width: 768px) {
+    padding: 64px 0;
+  }
+`;
+
+const Inner = styled.div`
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+
+  @media (max-width: 768px) {
+    padding: 0 24px;
+  }
+`;
+
+const BlockLabel = styled.p`
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 16px;
+`;
+
+const MissaoBlock = styled.div`
+  max-width: 820px;
+`;
+
+const MissaoQuote = styled.blockquote`
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(22px, 2.6vw, 34px);
+  font-weight: 600;
+  line-height: 1.3;
+  color: #ffffff;
+  border-left: 3px solid var(--amber);
+  padding-left: 28px;
+  margin: 0;
+
+  @media (max-width: 768px) {
+    padding-left: 18px;
+  }
+`;
+
+const Divider = styled.hr`
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  margin: 56px 0;
+
+  @media (max-width: 768px) {
+    margin: 40px 0;
+  }
+`;
+
+const MidRow = styled.div`
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+
+  @media (max-width: 900px) {
     flex-direction: column;
+    gap: 44px;
+  }
+`;
+
+const ValoresBlock = styled.div`
+  flex: 1;
+`;
+
+const ValoresList = styled.ul`
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+`;
+
+const ValueItem = styled.li`
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+`;
+
+const Dot = styled.div`
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--amber);
+  margin-top: 9px;
+`;
+
+const ValueName = styled.h3`
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  margin-bottom: 4px;
+`;
+
+const ValueDesc = styled.p`
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-light-muted);
+`;
+
+const VisaoBlock = styled.div`
+  flex-shrink: 0;
+  width: 320px;
+  padding-top: 4px;
+
+  @media (max-width: 900px) {
     width: 100%;
-    height: auto;
-    background-color: white;
-    background-image: url(${caminhao3});
-    background-size: cover; 
-    background-position: center; 
-    position: relative;
-    padding: 4vh 0 4vh 0;
-    z-index: 1 !important;
-    span{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: row;
-    }
-    &::before {
-        content: '';
-        background-color: rgba(255, 255, 255, 0.7);
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1 !important;
-    }
-    @media (max-width: 1200px) {
-    flex-direction: column;
-    height: auto;
-    justify-content: space-evenly;
-    align-items: center;
-    span{
-        flex-direction: column;
-    }
-}   
-`
-const SubContainer = styled.div`
-    z-index: 10 !important;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: rgba(210, 210, 210, 0.7);
-    border-radius: 10px;
-    height: 700px;
-    width: 400px;
-    padding: 15px 20px 0 20px;
-    text-align: center;
-    position: relative;
-    cursor: pointer;
-    border: 4px solid rgba(4, 28, 68, 0.95);
-    &:hover {
-    transition: all 0.2s ease-in-out;
-    transform: scale(1.03);
   }
-  @media (max-width: 1200px) {
-    width: 90%;
-    height: 300px; 
-    padding: 5px 20px 20px 20px;
-    }
-    div{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 150px;
-        border-radius:10px;
-        margin-bottom: 60px;
-        cursor: pointer;
-        @media (max-width: 1200px) {
-        height: 80px; 
-        margin-bottom: 15px;
-    }
-    }
-    p{
-        font-size: 28px;
-        color: black;
-        font-weight: 500;
-        line-height: 50px;
-        @media (max-width: 1200px) {
-            font-size: 20px;
-            line-height: 25px;
-}
-    }
-    h1{
-        font-size: 42px;
-        color: #041c44;
-        font-weight: 700;
-        @media (max-width: 1200px) {
-            font-size: 25px;
-            text-align: center;
-}
-    }
-`
-const SubContainerValues = styled.div`
-    z-index: 10 !important;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: rgba(210, 210, 210, 0.7);
-    border-radius: 10px;
-    height: 700px;
-    width: auto;
-    margin: 0vh 5vh 0vh 5vh;
-    max-width: 60vh;
-    padding-bottom: 40px;
-    text-align: center;
-    position: relative;
-    cursor: pointer;
-    border: 4px solid rgba(4, 28, 68, 0.95);
-    &:hover {
-    transition: all 0.2s ease-in-out;
-    transform: scale(1.03);
-  }
-  @media (max-width: 1200px) {
-    width: 90%;
-    height: auto; 
-    padding: 5px 20px 20px 20px;
-    margin-top: 5vh !important;
-    margin-bottom: 5vh !important
-    }
-    div{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 150px;
-        border-radius:10px;
-        margin-bottom: 40px;
-        cursor: pointer;
-        @media (max-width: 1200px) {
-        height: 80px; 
-        margin-bottom: 15px;
-    }
-    }
-    h1{
-        font-size: 42px;
-        color: #041c44;
-        font-weight: 700;
-        @media (max-width: 1200px) {
-            font-size: 25px;
-            text-align: center;
-}
-    }
-    h2{
-        font-size: 22px;
-        color: black;
-        font-weight: 500;
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
-        margin-top: 0px;
-        @media (max-width: 1200px) {
-            font-size: 23px;
-            margin-top: 15px;
-}
-    }
-    p{
-        font-size: 15px;
-        color: black;
-        font-weight: 500;
-        display: flex;
-        align-items: center;
-        max-width: 90%;
-        margin-bottom: 15px;
-        @media (max-width: 1200px) {
-            font-size: 15px;
-            max-width: 85%;
-} 
-    }
-`
-const SubContainerPolicy = styled.div`
-    z-index: 10 !important;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: rgba(210, 210, 210, 0.7);
-    border-radius: 10px;
-    height: auto;
-    width: 95% !important;
-    margin: 5vh 5vh 0vh 5vh;
-    padding-bottom: 0px;
-    padding: 22px 40px 40px 40px;
-    text-align: center;
-    position: relative;
-    //border: 4px solid rgba(4, 28, 68, 0.95);
-  @media (max-width: 1200px) {
-    width: 90%;
-    height: auto; 
-    padding: 23px 20px 20px 20px;
-    margin-top: 5vh !important;
-    border: 4px solid rgba(4, 28, 68, 0.95);
-    }
-    div{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 150px;
-        border-radius:10px;
-        margin-bottom: 60px;
-        cursor: pointer;
-        @media (max-width: 1200px) {
-        height: 80px; 
-        margin-bottom: 15px;
-    }
-    }
-    h1{
-        font-size: 42px;
-        color: #041c44;
-        font-weight: 700;
-        @media (max-width: 1200px) {
-            font-size: 25px;
-            text-align: center;
-}
-    }
-    h2{
-        font-size: 30px;
-        color: black;
-        font-weight: 500;
-        display: flex;
-        align-items: center;
-        margin-bottom: 40px;
-        margin-top: 0px;
-        @media (max-width: 1200px) {
-            font-size: 23px;
-}
-    }
-    p{
-        font-size: 22px;
-        color: black;
-        font-weight: 500;
-        display: flex;
-        align-items: center;
-        max-width: 100%;
-        margin-bottom: 20px;
-        @media (max-width: 1200px) {
-            font-size: 15px;
-            max-width: 95%;
-} 
-    }
-`
-const Eye = styled(AiOutlineEye)`
-    height: 100px;
-    width: 100px;
-    color: #041c44;
-    margin-top: 15px;
-    cursor: pointer;
-    @media (max-width: 1200px) {
-    width: 80px;
-    height: 80px; 
-}
-`
-const Arrow = styled(FaArrowUpShortWide)`
-    height: 100px;
-    width: 100px;
-    color: #041c44;
-    cursor: pointer;
-    @media (max-width: 1200px) {
-    width: 80px;
-    height: 80px; 
-    margin-top: -10px;
-}
-`
+`;
 
-const Target = styled(TbTargetArrow)`
-    height: 100px;
-    width: 100px;
-    color: #041c44;
-    margin-top: 15px;
-    cursor: pointer;
-    @media (max-width: 1200px) {
-    width: 80px;
-    height: 80px; 
-}
-`
-const Values = styled(BiDonateHeart)`
-    height: 100px;
-    width: 100px;
-    color: #041c44;
-    margin-top: 15px;
-    cursor: pointer;
-    @media (max-width: 1200px) {
-    width: 80px;
-    height: 80px; 
-}
-`
-const Check = styled(FaCheck)`
-    height: 40px;
-    width: 40px;
-    color: #041c44;
-    margin: 0 15px 0 0;
-    cursor: pointer;
-    @media (max-width: 1200px) {
-    width: 30px;
-    height: 30px; 
-    margin: 0 10px 0 0;
-}
-`
+const VisaoQuote = styled.blockquote`
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.65);
+  font-style: italic;
+  margin: 0;
+  border-left: 1px solid rgba(255,255,255,0.15);
+  padding-left: 20px;
+`;
+
+const PolicyBlock = styled.div``;
+
+const PolicyHeader = styled.div`
+  margin-bottom: 36px;
+`;
+
+const PolicyLead = styled.p`
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.60);
+  max-width: 640px;
+`;
+
+const PrincipleGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+`;
+
+const Principle = styled.div`
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-top: 2px solid var(--amber);
+  border-radius: 6px;
+  padding: 24px 20px;
+`;
+
+const PrincipleNum = styled.p`
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--amber);
+  opacity: 0.30;
+  line-height: 1;
+  margin-bottom: 12px;
+`;
+
+const PrincipleText = styled.p`
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.62);
+`;

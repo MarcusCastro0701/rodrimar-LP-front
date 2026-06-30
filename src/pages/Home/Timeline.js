@@ -1,37 +1,29 @@
 import React from 'react';
-import styled from "styled-components";
-import Contato from "../../components/Contato";
-import Inicio from "../../components/Inicio";
-import News from "../../components/News";
-import NossaHistoria from "../../components/NossaHistoria";
-import SobreNos from "../../components/SobreNos";
-import Valores from "../../components/Valores";
-import PartnersCarousel from "../../components/partners/PartnersCarousel";
-
+import styled from 'styled-components';
+import Clientes from '../../components/Clientes';
+import Contato from '../../components/Contato';
+import Inicio from '../../components/Inicio';
+import NossaHistoria from '../../components/NossaHistoria';
+import SobreNos from '../../components/SobreNos';
+import Valores from '../../components/Valores';
+import Segmentos from '../../components/partners/PartnersCarousel';
 
 export default function Timeline() {
-
   return (
-    <MainContainer>
-      <Inicio/>
-      <SobreNos/>
-      <Valores/>
-      <NossaHistoria/>
-      <PartnersCarousel/>
-      <Contato/>
-    </MainContainer>
+    <Main>
+      <Inicio />
+      <SobreNos />
+      <Valores />
+      <NossaHistoria />
+      <Segmentos />
+      <Clientes />
+      <Contato />
+    </Main>
   );
 }
 
-const MainContainer = styled.div`
+const Main = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-top: 45px;
-  z-index: 0;
-  @media (max-width: 1200px) {
-  padding-top: 0px !important;
-}
 `;

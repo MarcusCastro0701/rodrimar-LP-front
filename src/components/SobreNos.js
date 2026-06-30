@@ -1,114 +1,175 @@
 import React from 'react';
-import { BsTruck } from "react-icons/bs";
-import styled from "styled-components";
-import Carousel from "./NHistoriaCarrossel/CarrosselH";
-export default function SobreNos(){
+import styled from 'styled-components';
 
-  const BsTruckIcon = styled(BsTruck)`
-  font-size: 20vh;
-  margin-left: 18vw;
-  color: white;
-  transition: transform 0.2s; 
-  @media(max-width: 1200px) {
-    display:none;
-  }
-  
-  &:hover {
-    transform: scale(1.1);
+export default function SobreNos() {
+  return (
+    <Section id="sobre-nos">
+      <Inner>
+        <Left>
+          <Eyebrow>Sobre Nós</Eyebrow>
+          <Title>Uma empresa que se mede em décadas, não em campanhas.</Title>
+          <Body>
+            Somos uma transportadora de alto padrão e excelência. Atuamos no transporte de
+            calcário, cal, carvão coque e farelo, além de transportes pesados com frota
+            própria e agregados, abrangendo minérios em geral — a granel e ensacados.
+          </Body>
+          <Body>
+            No mercado há mais de 55 anos, a Transporte Rodrimar é uma das empresas mais
+            tradicionais em seus segmentos. Com frota acima de 60 veículos, oferecemos
+            qualidade e eficiência, desenvolvendo um trabalho mais seguro para nossos
+            clientes e colaboradores.
+          </Body>
+        </Left>
+
+        <Right>
+          <StatGrid>
+            <Stat>
+              <StatNum>55<Plus>+</Plus></StatNum>
+              <StatLabel>Anos de mercado</StatLabel>
+            </Stat>
+            <Stat>
+              <StatNum>60<Plus>+</Plus></StatNum>
+              <StatLabel>Veículos na frota</StatLabel>
+            </Stat>
+            <Stat $wide>
+              <StatWord>Lavras</StatWord>
+              <StatLabel>Minas Gerais · sede desde 1970</StatLabel>
+            </Stat>
+          </StatGrid>
+        </Right>
+      </Inner>
+    </Section>
+  );
+}
+
+const Section = styled.section`
+  background: var(--warm-white);
+  padding: 100px 0;
+
+  @media (max-width: 768px) {
+    padding: 64px 0;
   }
 `;
 
-    return(
+const Inner = styled.div`
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
 
-        <Container id="1">
-            <Left>
-            <h1>{"Sobre Nós"}</h1>
-
-            <p>
-              Somos uma empresa de alto padrão e excelência. Atuamos no setor de transportes de calcário, cal, carvão coque e farelo, além de transportes pesados com frota própria e agregados, abrangendo o transporte de minérios em geral (a granel e ensacados).
-            </p>
-
-            <p>
-              No mercado há mais de 50 anos, a Transporte Rodrimar é uma das empresas mais tradicionais em seus segmentos. Com uma frota acima de 60 veículos, nossa empresa oferece qualidade e eficiência, desenvolvendo um trabalho mais seguro aos nossos clientes e colaboradores.
-            </p>
-
-    <BsTruckIcon/>
-            </Left>
-            <Right>
-            <Carousel/>
-            </Right>
-        </Container >
-
-    )
-
-}
-
-
-const Container = styled.div `
-display: flex;
-justify-content:center;
-width: 100%;
-height: auto;
-max-height: 800px !important;
-background: linear-gradient(to right,rgba(4, 28, 68, 1),rgba(4, 28, 68, 0.6)), url("https://img.freepik.com/fotos-gratis/veiculo-de-caminhao-longo-pronto-para-entrega-e-transporte_342744-1294.jpg?w=1380&t=st=1693518357~exp=1693518957~hmac=52dfcf984acf66992463f98a8b5085988eb64367a3b6567f02c5127d43f57ef9") no-repeat center center / cover;
-box-shadow: rgba(0,0,0) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-padding-bottom: 50px;
-h1 {
-        padding-left: 1vw;
-        border-left: 8px solid #09DCFF;
-        font-size: 3.2vh;
-        font-weight: 600;
-        width: 100%;
-        margin: 0 3vw;
-        margin-top:10vh;
-        color:white;
-        height:32px;
-    }
-    p {
-    color: white;
-    margin: 4vh 3vw;
-    font-size:20px;
-    line-height: 1.5;
-    width:30vw;
-    height: auto !important;
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    gap: 52px;
   }
-@media (max-width: 1200px) {
-  flex-direction: column;
-  width: 100%;
-  height: 750px !important;
-  h1{
-    margin-top: 5vh;
+
+  @media (max-width: 768px) {
+    padding: 0 24px;
+    gap: 40px;
   }
-    p{
-      font-size:15px;
-      height: auto !important;
-      width:80vw;
-      margin: 4vh 3vh 10px 3vh;
-    }
-  }
-`
+`;
 
 const Left = styled.div`
-width:40vw;
-backdrop-filter: blur(5px);
-height: auto !important;
-@media (max-width:1200px) {
-  margin:2vh 4vw;
-}
-`
-const Right = styled.div`
-backdrop-filter: blur(5px);
-display:flex;
-justify-content:center;
-align-items:center;
-height: auto !important;
+  flex: 1;
+`;
 
-  @media (max-width: 1200px) {
-    width:40vw;
-    height:40vw;
-    backdrop-filter: none;
-    margin:auto;
+const Eyebrow = styled.p`
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 16px;
+`;
+
+const Title = styled.h2`
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--navy-deep);
+  margin-bottom: 28px;
+  max-width: 520px;
+`;
+
+const Body = styled.p`
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  max-width: 540px;
+`;
+
+const Right = styled.div`
+  flex-shrink: 0;
+  width: 340px;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
+`;
+
+const StatGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid rgba(7,30,61,0.10);
+  border-radius: 10px;
+  overflow: hidden;
+`;
+
+const Stat = styled.div`
+  background: #ffffff;
+  padding: 32px 24px;
+  grid-column: ${({ $wide }) => ($wide ? 'span 2' : 'span 1')};
+  border-bottom: 1px solid rgba(7,30,61,0.07);
+  border-right: ${({ $wide }) => ($wide ? 'none' : '1px solid rgba(7,30,61,0.07)')};
+
+  &:nth-child(2) {
+    border-right: none;
   }
 
-`
+  @media (max-width: 768px) {
+    padding: 24px 20px;
+  }
+`;
 
+const StatNum = styled.div`
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--navy-deep);
+  margin-bottom: 8px;
+
+  @media (max-width: 768px) {
+    font-size: 56px;
+  }
+`;
+
+const Plus = styled.span`
+  color: var(--amber);
+  font-size: 44px;
+`;
+
+const StatWord = styled.div`
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--navy-deep);
+  margin-bottom: 8px;
+
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
+`;
+
+const StatLabel = styled.p`
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+`;

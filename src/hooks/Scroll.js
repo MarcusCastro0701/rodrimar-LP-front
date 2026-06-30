@@ -1,7 +1,4 @@
-export default function scroll(position){
-    window.scrollTo({
-        top: position,
-        left: 0,
-        behavior: 'smooth'
-      });
+export default function scroll(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
 }

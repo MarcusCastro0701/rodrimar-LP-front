@@ -1,11 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Lexend+Deca:wght@300;400;500;600&display=swap');
+
+:root {
+  --navy-deep:        #071e3d;
+  --navy-mid:         #0d2e5a;
+  --warm-white:       #F5F1EB;
+  --warm-card:        #EDE8DF;
+  --amber:            #BF8D35;
+  --amber-faint:      rgba(191, 141, 53, 0.10);
+  --text-body:        #1C1C1E;
+  --text-muted:       #5A5A5A;
+  --text-light:       rgba(255, 255, 255, 0.90);
+  --text-light-muted: rgba(255, 255, 255, 0.50);
+}
 
 * {
   box-sizing: border-box;
-  transition: all ease 0.2s;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
 }
 
 body {
   font-family: 'Lexend Deca', sans-serif;
+  background-color: var(--warm-white);
+  color: var(--text-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+section {
+  scroll-margin-top: 72px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
