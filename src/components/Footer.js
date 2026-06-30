@@ -9,7 +9,7 @@ const FOOTER_LINKS = [
   { label: 'Valores',        id: 'valores' },
   { label: 'Nossa História', id: 'nossa-historia' },
   { label: 'Segmentos',      id: 'segmentos' },
-  { label: 'Clientes',       id: 'clientes' },
+  // { label: 'Clientes',       id: 'clientes' },
   { label: 'Contato',        id: 'contato' },
 ];
 
@@ -76,11 +76,11 @@ export default function Footer() {
           © {new Date().getFullYear()} Transporte Rodrimar. Todos os direitos reservados.
         </BottomText>
         <BottomLink
-          href="https://www.alphawebrasil.com.br"
+          href="https://github.com/MarcusCastro0701"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Desenvolvido por AlphaWeb
+          Desenvolvido por Marcus Castro
         </BottomLink>
       </Bottom>
     </Root>
@@ -125,14 +125,14 @@ const LogoCol = styled.div`
 `;
 
 const Tagline = styled.p`
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.7;
   color: var(--text-light-muted);
 `;
 
 const ColTitle = styled.h4`
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -148,7 +148,7 @@ const NavLink = styled.button`
   border: none;
   color: var(--text-light-muted);
   font-family: 'Lexend Deca', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
   padding: 5px 0;
   text-align: left;
@@ -160,7 +160,7 @@ const NavLink = styled.button`
 const ContactCol = styled.div``;
 
 const ContactLine = styled.p`
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.75;
   color: var(--text-light-muted);
   margin-bottom: 10px;
@@ -182,7 +182,7 @@ const SocialLink = styled.a`
   border: 1px solid rgba(255,255,255,0.14);
   border-radius: 50%;
   color: var(--text-light-muted);
-  font-size: 17px;
+  font-size: 20px;
   transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 
   &:hover {
@@ -211,12 +211,12 @@ const Bottom = styled.div`
 `;
 
 const BottomText = styled.span`
-  font-size: 13px;
+  font-size: 15px;
   color: var(--text-light-muted);
 `;
 
 const BottomLink = styled.a`
-  font-size: 13px;
+  font-size: 15px;
   color: var(--text-light-muted);
   text-decoration: underline;
   text-underline-offset: 3px;

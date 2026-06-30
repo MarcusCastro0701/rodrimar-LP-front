@@ -78,7 +78,7 @@ const Left = styled.div`
 
 const Eyebrow = styled.p`
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -88,7 +88,7 @@ const Eyebrow = styled.p`
 
 const Title = styled.h2`
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(28px, 3vw, 40px);
+  font-size: clamp(32px, 3.45vw, 46px);
   font-weight: 700;
   line-height: 1.15;
   color: var(--navy-deep);
@@ -106,7 +106,7 @@ const InfoItem = styled.li`
   display: flex;
   align-items: flex-start;
   gap: 14px;
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.65;
   color: var(--text-muted);
 

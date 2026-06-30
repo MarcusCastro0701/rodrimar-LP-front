@@ -56,7 +56,7 @@ const Inner = styled.div`
 
 const Eyebrow = styled.p`
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -66,7 +66,7 @@ const Eyebrow = styled.p`
 
 const Title = styled.h2`
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(28px, 3.2vw, 42px);
+  font-size: clamp(32px, 3.7vw, 48px);
   font-weight: 700;
   color: var(--navy-deep);
   line-height: 1.1;

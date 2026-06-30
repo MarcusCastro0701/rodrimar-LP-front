@@ -98,7 +98,7 @@ const Left = styled.div`
 
 const Title = styled.h2`
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(36px, 4.5vw, 60px);
+  font-size: clamp(41px, 5.2vw, 69px);
   font-weight: 700;
   line-height: 1.0;
   color: var(--amber);
@@ -106,7 +106,7 @@ const Title = styled.h2`
 `;
 
 const Body = styled.p`
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.85;
   color: var(--text-muted);
   margin-bottom: 16px;

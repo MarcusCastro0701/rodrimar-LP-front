@@ -113,7 +113,7 @@ const Inner = styled.div`
 
 const BlockLabel = styled.p`
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -128,7 +128,7 @@ const MissaoBlock = styled.div`
 
 const MissaoQuote = styled.blockquote`
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(22px, 2.6vw, 34px);
+  font-size: clamp(25px, 3vw, 39px);
   font-weight: 600;
   line-height: 1.3;
   color: #ffffff;
@@ -185,7 +185,7 @@ const Dot = styled.div`
 
 const ValueName = styled.h3`
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 19px;
+  font-size: 22px;
   font-weight: 700;
   color: #ffffff;
   letter-spacing: 0.02em;
@@ -193,7 +193,7 @@ const ValueName = styled.h3`
 `;
 
 const ValueDesc = styled.p`
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.7;
   color: var(--text-light-muted);
 `;
@@ -204,7 +204,7 @@ const VisaoBlock = styled.div`
 `;
 
 const VisaoQuote = styled.blockquote`
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 300;
   line-height: 1.75;
   color: rgba(255,255,255,0.65);
@@ -221,7 +221,7 @@ const PolicyHeader = styled.div`
 `;
 
 const PolicyLead = styled.p`
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.75;
   color: rgba(255,255,255,0.60);
   max-width: 640px;
@@ -245,14 +245,19 @@ const Principle = styled.div`
   border-radius: 6px;
   padding: 24px 20px;
   ${fadeStyles}
+
+  &:hover {
+    transform: translateY(-6px) scale(1.02);
+    background: rgba(255,255,255,0.06);
+    transition: transform 0.22s ease, background 0.22s ease;
+  }
 `;
 
 const PrincipleNum = styled.p`
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 40px;
+  font-size: 46px;
   font-weight: 700;
-  color: var(--amber);
-  opacity: 0.30;
+  color: #D4AA5A;
   line-height: 1;
   margin-bottom: 12px;
 `;

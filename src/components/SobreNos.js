@@ -82,7 +82,7 @@ const Left = styled.div`
 
 const Eyebrow = styled.p`
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -92,7 +92,7 @@ const Eyebrow = styled.p`
 
 const Title = styled.h2`
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(28px, 3.2vw, 42px);
+  font-size: clamp(32px, 3.7vw, 48px);
   font-weight: 700;
   line-height: 1.1;
   color: var(--navy-deep);
@@ -101,7 +101,7 @@ const Title = styled.h2`
 `;
 
 const Body = styled.p`
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.85;
   color: var(--text-muted);
   margin-bottom: 16px;
@@ -144,37 +144,37 @@ const Stat = styled.div`
 
 const StatNum = styled.div`
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 72px;
+  font-size: 83px;
   font-weight: 700;
   line-height: 1;
   color: var(--navy-deep);
   margin-bottom: 8px;
 
   @media (max-width: 768px) {
-    font-size: 56px;
+    font-size: 64px;
   }
 `;
 
 const Plus = styled.span`
   color: var(--amber);
-  font-size: 44px;
+  font-size: 51px;
 `;
 
 const StatWord = styled.div`
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 52px;
+  font-size: 60px;
   font-weight: 700;
   line-height: 1;
   color: var(--navy-deep);
   margin-bottom: 8px;
 
   @media (max-width: 768px) {
-    font-size: 40px;
+    font-size: 46px;
   }
 `;
 
 const StatLabel = styled.p`
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.07em;
   text-transform: uppercase;

@@ -85,7 +85,7 @@ const Left = styled.div`
 
 const Eyebrow = styled.p`
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -95,7 +95,7 @@ const Eyebrow = styled.p`
 
 const YearMark = styled.h2`
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(72px, 10vw, 120px);
+  font-size: clamp(83px, 11.5vw, 138px);
   font-weight: 700;
   line-height: 0.9;
   color: var(--amber);
@@ -104,7 +104,7 @@ const YearMark = styled.h2`
 `;
 
 const Body = styled.p`
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.85;
   color: var(--text-muted);
   margin-bottom: 16px;

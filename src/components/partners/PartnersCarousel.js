@@ -71,7 +71,7 @@ const SectionHeader = styled.div`
 
 const Eyebrow = styled.p`
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -81,7 +81,7 @@ const Eyebrow = styled.p`
 
 const Title = styled.h2`
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(32px, 4vw, 52px);
+  font-size: clamp(37px, 4.6vw, 60px);
   font-weight: 700;
   line-height: 1.1;
   color: #ffffff;
@@ -134,7 +134,7 @@ const IconWrap = styled.div`
 
 const CardName = styled.h3`
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 700;
   color: #ffffff;
   letter-spacing: 0.02em;
@@ -142,7 +142,7 @@ const CardName = styled.h3`
 `;
 
 const CardDesc = styled.p`
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.65;
   color: var(--text-light-muted);
 `;

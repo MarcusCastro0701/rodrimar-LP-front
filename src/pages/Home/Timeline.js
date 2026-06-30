@@ -18,7 +18,7 @@ export default function Timeline() {
       <NossaHistoria />
       <Fundador />
       <Segmentos />
-      <Clientes />
+      {/* <Clientes /> */}
       <Contato />
     </Main>
   );
