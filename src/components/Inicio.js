@@ -89,8 +89,7 @@ export default function Inicio() {
             <Accent>permanece.</Accent>
           </Headline>
           <Sub $ready={videoReady}>
-            Mais de 55 anos movendo calcário, minérios e grãos pelo Brasil,
-            com frota própria e a solidez de quem atua no mercado nacional há décadas.
+            Mais de 55 anos atuando no mercado nacional com solidez e comprometimento.
           </Sub>
           <CTA
             $ready={videoReady}
