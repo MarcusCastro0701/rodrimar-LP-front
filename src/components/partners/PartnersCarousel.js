@@ -2,52 +2,32 @@ import React from 'react';
 import styled from 'styled-components';
 import { MdAgriculture, MdRecycling, MdOutlineBlinds } from 'react-icons/md';
 import { GiFactory, GiFallingRocks } from 'react-icons/gi';
+import useInView from '../../hooks/useInView';
+import fadeStyles from '../../utils/fadeStyles';
 
 const SEGMENTS = [
-  {
-    Icon:  MdAgriculture,
-    name:  'Agronegócio',
-    desc:  'Calcário agrícola, cal, farelo e grãos a granel.',
-    color: '#5C7A3A',
-  },
-  {
-    Icon:  MdRecycling,
-    name:  'Resíduos',
-    desc:  'Transporte e destinação de resíduos industriais.',
-    color: '#3D6645',
-  },
-  {
-    Icon:  GiFallingRocks,
-    name:  'Minérios',
-    desc:  'Minérios a granel e ensacados, agregados e rochas.',
-    color: '#8B7250',
-  },
-  {
-    Icon:  MdOutlineBlinds,
-    name:  'Cerâmica',
-    desc:  'Insumos e produtos para o setor cerâmico.',
-    color: '#9B4A35',
-  },
-  {
-    Icon:  GiFactory,
-    name:  'Metalurgia',
-    desc:  'Carvão coque e matérias-primas para usinas siderúrgicas.',
-    color: '#2E5480',
-  },
+  { Icon: MdAgriculture,  name: 'Agronegócio', desc: 'Calcário agrícola, cal, farelo e grãos a granel.',                            color: '#5C7A3A' },
+  { Icon: MdRecycling,    name: 'Resíduos',    desc: 'Transporte e destinação de resíduos industriais.',                            color: '#3D6645' },
+  { Icon: GiFallingRocks, name: 'Minérios',    desc: 'Minérios a granel e ensacados, agregados e rochas.',                          color: '#8B7250' },
+  { Icon: MdOutlineBlinds,name: 'Cerâmica',    desc: 'Insumos e produtos para o setor cerâmico.',                                   color: '#9B4A35' },
+  { Icon: GiFactory,      name: 'Metalurgia',  desc: 'Carvão coque e matérias-primas para usinas siderúrgicas.',                    color: '#2E5480' },
 ];
 
 export default function Segmentos() {
+  const [headerRef, headerIn] = useInView();
+  const [gridRef,   gridIn]   = useInView();
+
   return (
     <Section id="segmentos">
       <Inner>
-        <SectionHeader>
+        <SectionHeader ref={headerRef} $inView={headerIn}>
           <Eyebrow>O que transportamos</Eyebrow>
           <Title>Nossos Segmentos</Title>
         </SectionHeader>
 
-        <Grid>
-          {SEGMENTS.map(({ Icon, name, desc, color }) => (
-            <Card key={name} $color={color}>
+        <Grid ref={gridRef}>
+          {SEGMENTS.map(({ Icon, name, desc, color }, i) => (
+            <Card key={name} $color={color} $inView={gridIn} $delay={i * 90}>
               <IconWrap>
                 <Icon style={{ color, width: 40, height: 40 }} />
               </IconWrap>
@@ -82,6 +62,7 @@ const Inner = styled.div`
 
 const SectionHeader = styled.div`
   margin-bottom: 56px;
+  ${fadeStyles}
 
   @media (max-width: 768px) {
     margin-bottom: 36px;
@@ -126,11 +107,20 @@ const Card = styled.div`
   border-top: 3px solid ${({ $color }) => $color};
   border-radius: 8px;
   padding: 28px 20px 24px;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease,
+              opacity 0.65s ease ${({ $delay = 0 }) => $delay}ms,
+              transform 0.65s ease ${({ $delay = 0 }) => $delay}ms;
+  opacity: ${({ $inView }) => ($inView ? 1 : 0)};
+  transform: ${({ $inView }) => ($inView ? 'translateY(0)' : 'translateY(22px)')};
 
   &:hover {
     background: rgba(255,255,255,0.08);
     transform: translateY(-4px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    transform: none;
   }
 
   @media (max-width: 768px) {

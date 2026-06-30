@@ -1,13 +1,17 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import PARTNER_LIST from './partners/partnerList';
+import useInView from '../hooks/useInView';
+import fadeStyles from '../utils/fadeStyles';
 
 const doubled = [...PARTNER_LIST, ...PARTNER_LIST];
 
 export default function Clientes() {
+  const [headerRef, headerIn] = useInView();
+
   return (
     <Section id="clientes">
-      <Inner>
+      <Inner ref={headerRef} $inView={headerIn}>
         <Eyebrow>Nossos Clientes</Eyebrow>
         <Title>Quem confia na Rodrimar</Title>
       </Inner>
@@ -43,6 +47,7 @@ const Inner = styled.div`
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 48px 52px;
+  ${fadeStyles}
 
   @media (max-width: 768px) {
     padding: 0 24px 40px;

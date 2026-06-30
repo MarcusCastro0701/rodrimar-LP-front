@@ -1,17 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
+import useInView from '../hooks/useInView';
+import fadeStyles from '../utils/fadeStyles';
 
 export default function SobreNos() {
+  const [leftRef,  leftIn]  = useInView();
+  const [rightRef, rightIn] = useInView();
+
   return (
     <Section id="sobre-nos">
       <Inner>
-        <Left>
+        <Left ref={leftRef} $inView={leftIn}>
           <Eyebrow>Sobre Nós</Eyebrow>
           <Title>Uma empresa que se mede em décadas, não em campanhas.</Title>
           <Body>
             Somos uma transportadora de alto padrão e excelência. Atuamos no transporte de
             calcário, cal, carvão coque e farelo, além de transportes pesados com frota
-            própria e agregados, abrangendo minérios em geral — a granel e ensacados.
+            própria e agregados, abrangendo minérios em geral: a granel e ensacados.
           </Body>
           <Body>
             No mercado há mais de 55 anos, a Transporte Rodrimar é uma das empresas mais
@@ -21,7 +26,7 @@ export default function SobreNos() {
           </Body>
         </Left>
 
-        <Right>
+        <Right ref={rightRef} $inView={rightIn} $delay={150}>
           <StatGrid>
             <Stat>
               <StatNum>55<Plus>+</Plus></StatNum>
@@ -72,6 +77,7 @@ const Inner = styled.div`
 
 const Left = styled.div`
   flex: 1;
+  ${fadeStyles}
 `;
 
 const Eyebrow = styled.p`
@@ -105,6 +111,7 @@ const Body = styled.p`
 const Right = styled.div`
   flex-shrink: 0;
   width: 340px;
+  ${fadeStyles}
 
   @media (max-width: 1024px) {
     width: 100%;

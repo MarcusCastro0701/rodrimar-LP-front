@@ -1,6 +1,8 @@
 import React from 'react';
 import YouTube from 'react-youtube';
 import styled from 'styled-components';
+import useInView from '../hooks/useInView';
+import fadeStyles from '../utils/fadeStyles';
 
 const YT_OPTS = {
   width: '100%',
@@ -15,11 +17,14 @@ const YT_OPTS = {
 };
 
 export default function NossaHistoria() {
+  const [leftRef,  leftIn]  = useInView();
+  const [rightRef, rightIn] = useInView();
+
   return (
     <Section id="nossa-historia">
       <Inner>
-        <Left>
-          <Eyebrow>Nossa História · Lavras, MG</Eyebrow>
+        <Left ref={leftRef} $inView={leftIn}>
+          <Eyebrow>Nossa História · fundação</Eyebrow>
           <YearMark>1970</YearMark>
           <Body>
             Fundada em 1 de abril de 1970 por Celso Rodrigues, a Transporte Rodrimar
@@ -35,7 +40,7 @@ export default function NossaHistoria() {
           </Body>
         </Left>
 
-        <Right>
+        <Right ref={rightRef} $inView={rightIn} $delay={150}>
           <VideoWrap>
             <YouTube videoId="4Se-PKhXZhU" opts={YT_OPTS} />
           </VideoWrap>
@@ -75,6 +80,7 @@ const Inner = styled.div`
 
 const Left = styled.div`
   flex: 1;
+  ${fadeStyles}
 `;
 
 const Eyebrow = styled.p`
@@ -108,6 +114,7 @@ const Body = styled.p`
 const Right = styled.div`
   flex-shrink: 0;
   width: 500px;
+  ${fadeStyles}
 
   @media (max-width: 1024px) {
     width: 100%;

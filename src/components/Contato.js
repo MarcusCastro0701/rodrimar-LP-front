@@ -2,12 +2,17 @@ import React from 'react';
 import { FaPhone, FaLocationDot } from 'react-icons/fa6';
 import { MdEmail } from 'react-icons/md';
 import styled from 'styled-components';
+import useInView from '../hooks/useInView';
+import fadeStyles from '../utils/fadeStyles';
 
 export default function Contato() {
+  const [leftRef,  leftIn]  = useInView();
+  const [rightRef, rightIn] = useInView();
+
   return (
     <Section id="contato">
       <Inner>
-        <Left>
+        <Left ref={leftRef} $inView={leftIn}>
           <Eyebrow>Contato e Endereço</Eyebrow>
           <Title>Estamos em Lavras,<br />Minas Gerais.</Title>
           <InfoList>
@@ -26,7 +31,7 @@ export default function Contato() {
           </InfoList>
         </Left>
 
-        <Right>
+        <Right ref={rightRef} $inView={rightIn} $delay={150}>
           <MapFrame
             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3718.030736127133!2d-44.978613!3d-21.2702509!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9ffd88fff8038d%3A0x6203fb732a8a547a!2sTransporte%20Rodrimar!5e0!3m2!1spt-BR!2sbr!4v1693863803794!5m2!1spt-BR!2sbr"
             title="Localização Transporte Rodrimar"
@@ -68,6 +73,7 @@ const Inner = styled.div`
 
 const Left = styled.div`
   flex: 1;
+  ${fadeStyles}
 `;
 
 const Eyebrow = styled.p`
@@ -108,7 +114,6 @@ const InfoItem = styled.li`
     color: var(--navy-deep);
     font-weight: 500;
     transition: color 0.2s;
-
     &:hover { color: var(--amber); }
   }
 
@@ -141,6 +146,7 @@ const EmailIcon = styled(MdEmail)`
 const Right = styled.div`
   flex-shrink: 0;
   width: 500px;
+  ${fadeStyles}
 
   @media (max-width: 1024px) {
     width: 100%;

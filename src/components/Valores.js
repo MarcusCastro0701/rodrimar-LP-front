@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import useInView from '../hooks/useInView';
+import fadeStyles from '../utils/fadeStyles';
 
 const VALUES = [
   { name: 'Pessoas',          desc: 'As pessoas certas para as funções certas são imprescindíveis para o sucesso da empresa.' },
@@ -16,11 +18,17 @@ const PRINCIPLES = [
 ];
 
 export default function Valores() {
+  const [missaoRef,  missaoIn]  = useInView();
+  const [valoresRef, valoresIn] = useInView();
+  const [visaoRef,   visaoIn]   = useInView();
+  const [policyRef,  policyIn]  = useInView();
+  const [gridRef,    gridIn]    = useInView();
+
   return (
     <Section id="valores">
       <Inner>
 
-        <MissaoBlock>
+        <MissaoBlock ref={missaoRef} $inView={missaoIn}>
           <BlockLabel>Missão</BlockLabel>
           <MissaoQuote>
             "Atender as necessidades dos nossos clientes, oferecendo serviços de
@@ -32,7 +40,7 @@ export default function Valores() {
         <Divider />
 
         <MidRow>
-          <ValoresBlock>
+          <ValoresBlock ref={valoresRef} $inView={valoresIn}>
             <BlockLabel>Valores</BlockLabel>
             <ValoresList>
               {VALUES.map(({ name, desc }) => (
@@ -47,7 +55,9 @@ export default function Valores() {
             </ValoresList>
           </ValoresBlock>
 
-          <VisaoBlock>
+          <Divider />
+
+          <VisaoBlock ref={visaoRef} $inView={visaoIn} $delay={100}>
             <BlockLabel>Visão</BlockLabel>
             <VisaoQuote>
               "Ser uma transportadora de referência no mercado nacional, reconhecida
@@ -58,7 +68,7 @@ export default function Valores() {
 
         <Divider />
 
-        <PolicyBlock>
+        <PolicyBlock ref={policyRef} $inView={policyIn}>
           <PolicyHeader>
             <BlockLabel>Política de Qualidade</BlockLabel>
             <PolicyLead>
@@ -67,9 +77,9 @@ export default function Valores() {
               em três princípios fundamentais:
             </PolicyLead>
           </PolicyHeader>
-          <PrincipleGrid>
+          <PrincipleGrid ref={gridRef}>
             {PRINCIPLES.map((text, i) => (
-              <Principle key={i}>
+              <Principle key={i} $inView={gridIn} $delay={i * 100}>
                 <PrincipleNum>0{i + 1}</PrincipleNum>
                 <PrincipleText>{text}</PrincipleText>
               </Principle>
@@ -103,7 +113,7 @@ const Inner = styled.div`
 
 const BlockLabel = styled.p`
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -113,6 +123,7 @@ const BlockLabel = styled.p`
 
 const MissaoBlock = styled.div`
   max-width: 820px;
+  ${fadeStyles}
 `;
 
 const MissaoQuote = styled.blockquote`
@@ -142,17 +153,12 @@ const Divider = styled.hr`
 
 const MidRow = styled.div`
   display: flex;
-  gap: 80px;
-  align-items: flex-start;
-
-  @media (max-width: 900px) {
-    flex-direction: column;
-    gap: 44px;
-  }
+  flex-direction: column;
 `;
 
 const ValoresBlock = styled.div`
   flex: 1;
+  ${fadeStyles}
 `;
 
 const ValoresList = styled.ul`
@@ -193,13 +199,8 @@ const ValueDesc = styled.p`
 `;
 
 const VisaoBlock = styled.div`
-  flex-shrink: 0;
-  width: 320px;
-  padding-top: 4px;
-
-  @media (max-width: 900px) {
-    width: 100%;
-  }
+  max-width: 640px;
+  ${fadeStyles}
 `;
 
 const VisaoQuote = styled.blockquote`
@@ -209,11 +210,11 @@ const VisaoQuote = styled.blockquote`
   color: rgba(255,255,255,0.65);
   font-style: italic;
   margin: 0;
-  border-left: 1px solid rgba(255,255,255,0.15);
-  padding-left: 20px;
 `;
 
-const PolicyBlock = styled.div``;
+const PolicyBlock = styled.div`
+  ${fadeStyles}
+`;
 
 const PolicyHeader = styled.div`
   margin-bottom: 36px;
@@ -243,6 +244,7 @@ const Principle = styled.div`
   border-top: 2px solid var(--amber);
   border-radius: 6px;
   padding: 24px 20px;
+  ${fadeStyles}
 `;
 
 const PrincipleNum = styled.p`

@@ -2,8 +2,14 @@ import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import caminhao2 from '../assets/images/caminhao2.jpg';
 import caminhao3 from '../assets/images/caminhao3.jpg';
+import logo from '../assets/images/newLogoWhiteNoBG.png';
 
 const IMAGES = [caminhao2, caminhao3];
+
+const fadeUp = keyframes`
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+`;
 
 export default function Inicio() {
   const [idx,     setIdx]     = useState(0);
@@ -25,7 +31,8 @@ export default function Inicio() {
       <BgImage $url={IMAGES[idx]} $visible={visible} />
       <Overlay />
       <Content>
-        <Eyebrow>Transporte Rodrimar · Lavras, MG · Desde 1970</Eyebrow>
+        <Logo src={logo} alt="Transporte Rodrimar" decoding="async" />
+        <Eyebrow>Lavras, MG · Desde 1970</Eyebrow>
         <Headline>
           Cargas que chegam.<br />
           Compromisso que<br />
@@ -33,7 +40,7 @@ export default function Inicio() {
         </Headline>
         <Sub>
           Mais de 55 anos movendo calcário, minérios e grãos pelo Brasil,
-          com frota própria e a solidez de quem nunca parou.
+          com frota própria e a solidez de quem atua no mercado há décadas.
         </Sub>
         <CTA
           onClick={() => {
@@ -98,6 +105,27 @@ const Content = styled.div`
   }
 `;
 
+const Logo = styled.img`
+  display: block;
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 32px;
+  image-rendering: -webkit-optimize-contrast;
+  opacity: 0;
+  animation: ${fadeUp} 0.7s ease 0ms forwards;
+
+  @media (max-width: 768px) {
+    height: 56px;
+    margin-bottom: 24px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    animation: none;
+  }
+`;
+
 const Eyebrow = styled.p`
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 13px;
@@ -106,20 +134,34 @@ const Eyebrow = styled.p`
   text-transform: uppercase;
   color: var(--amber);
   margin-bottom: 20px;
+  opacity: 0;
+  animation: ${fadeUp} 0.7s ease 140ms forwards;
 
   @media (max-width: 768px) {
     font-size: 11px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    animation: none;
   }
 `;
 
 const Headline = styled.h1`
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(52px, 7vw, 96px);
+  font-size: clamp(32px, 4.8vw, 68px);
   font-weight: 700;
   line-height: 1.0;
   color: #ffffff;
   margin-bottom: 28px;
-  max-width: 720px;
+  max-width: 900px;
+  opacity: 0;
+  animation: ${fadeUp} 0.7s ease 280ms forwards;
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    animation: none;
+  }
 `;
 
 const Accent = styled.span`
@@ -127,15 +169,22 @@ const Accent = styled.span`
 `;
 
 const Sub = styled.p`
-  font-size: clamp(15px, 1.4vw, 18px);
+  font-size: clamp(15px, 1.5vw, 20px);
   font-weight: 300;
   line-height: 1.75;
   color: var(--text-light);
-  max-width: 500px;
+  max-width: 720px;
   margin-bottom: 40px;
+  opacity: 0;
+  animation: ${fadeUp} 0.7s ease 400ms forwards;
 
   @media (max-width: 768px) {
     font-size: 14px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    animation: none;
   }
 `;
 
@@ -151,6 +200,8 @@ const CTA = styled.button`
   padding: 14px 36px;
   border-radius: 4px;
   cursor: pointer;
+  opacity: 0;
+  animation: ${fadeUp} 0.7s ease 520ms forwards;
   transition: background 0.2s ease, transform 0.15s ease;
 
   &:hover {
@@ -160,6 +211,11 @@ const CTA = styled.button`
 
   &:active {
     transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    animation: none;
   }
 `;
 
