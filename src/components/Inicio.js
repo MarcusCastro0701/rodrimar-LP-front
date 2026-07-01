@@ -196,7 +196,7 @@ const Content = styled.div`
   padding-top: 72px;
 
   @media (max-width: 768px) {
-    padding: 72px 24px 0;
+    padding: 40px 24px 0;
   }
 `;
 

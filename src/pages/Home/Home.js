@@ -84,8 +84,8 @@ const FabMain = styled.button`
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(7, 30, 61, 0.55);
+  border: 1px solid ${({ $open }) => ($open ? 'rgba(191, 141, 53, 0.50)' : 'rgba(255, 255, 255, 0.18)')};
+  background: ${({ $open }) => ($open ? 'rgba(191, 141, 53, 0.85)' : 'rgba(7, 30, 61, 0.55)')};
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   color: #ffffff;
@@ -94,14 +94,17 @@ const FabMain = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255,255,255,0.06);
   transition: background 0.2s ease, border-color 0.2s ease, transform 0.25s ease;
   transform: ${({ $open }) => ($open ? 'rotate(135deg)' : 'rotate(0deg)')};
   flex-shrink: 0;
 
-  &:hover {
-    background: rgba(191, 141, 53, 0.85);
-    border-color: rgba(191, 141, 53, 0.50);
+  @media (hover: hover) {
+    &:hover {
+      background: rgba(191, 141, 53, 0.85);
+      border-color: rgba(191, 141, 53, 0.50);
+    }
   }
 `;
 
@@ -129,11 +132,14 @@ const FabLink = styled.a`
   box-shadow: 0 3px 14px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(255,255,255,0.06);
   border: 1px solid rgba(255, 255, 255, 0.18);
   transition: background 0.2s ease, border-color 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
 
-  &:hover {
-    background: rgba(191, 141, 53, 0.85);
-    border-color: rgba(191, 141, 53, 0.50);
-    color: #ffffff;
+  @media (hover: hover) {
+    &:hover {
+      background: rgba(191, 141, 53, 0.85);
+      border-color: rgba(191, 141, 53, 0.50);
+      color: #ffffff;
+    }
   }
 `;
 

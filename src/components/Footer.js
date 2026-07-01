@@ -28,7 +28,7 @@ export default function Footer() {
       <Top>
         <LogoCol>
           <img src={rodrimarNoBG} alt="Transporte Rodrimar" />
-          <Tagline>Transporte de cargas com<br />dedicação desde 1970.</Tagline>
+          <Tagline>Mais de 55 anos de solidez e comprometimento.</Tagline>
         </LogoCol>
 
         <NavCol>
