@@ -4,9 +4,10 @@ import { FaPlay } from 'react-icons/fa';
 import styled from 'styled-components';
 import useInView from '../hooks/useInView';
 import fadeStyles from '../utils/fadeStyles';
+import coverImage from '../assets/images/background desktop 4.png';
 
-const VIDEO_ID  = '4Se-PKhXZhU';
-const THUMBNAIL = `https://img.youtube.com/vi/${VIDEO_ID}/hqdefault.jpg`;
+const VIDEO_ID  = '1q7jTQQs83o';
+const THUMBNAIL = coverImage;
 
 const YT_OPTS = {
   width: '100%',
@@ -126,7 +127,7 @@ const Body = styled.p`
 
 const Right = styled.div`
   flex-shrink: 0;
-  width: 500px;
+  width: 580px;
   ${fadeStyles}
 
   @media (max-width: 1024px) {

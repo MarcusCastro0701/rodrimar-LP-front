@@ -8,7 +8,7 @@ import mobile3 from '../assets/images/background mobile 3.webp';
 
 const MOBILE_IMAGES = [mobile1, mobile2, mobile3];
 
-const BG_VIDEO = 'https://res.cloudinary.com/tb5zvp2z/video/upload/f_auto,q_auto/Vi%CC%81deo_Rdm_2025_OTIMIZADO_PARA_WEB_mel5ta';
+const BG_VIDEO = 'https://res.cloudinary.com/tb5zvp2z/video/upload/f_auto,q_auto/Video_Sem_Legenda_b1bvvi';
 
 const fadeUp = keyframes`
   from { opacity: 0; transform: translateY(20px); }
