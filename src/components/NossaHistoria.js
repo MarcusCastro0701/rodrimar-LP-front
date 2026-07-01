@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import YouTube from 'react-youtube';
+import { FaPlay } from 'react-icons/fa';
 import styled from 'styled-components';
 import useInView from '../hooks/useInView';
 import fadeStyles from '../utils/fadeStyles';
+
+const VIDEO_ID  = '4Se-PKhXZhU';
+const THUMBNAIL = `https://img.youtube.com/vi/${VIDEO_ID}/hqdefault.jpg`;
 
 const YT_OPTS = {
   width: '100%',
   height: '100%',
   playerVars: {
+    autoplay: 1,
     controls: 1,
     fs: 1,
     iv_load_policy: 3,
@@ -19,6 +24,7 @@ const YT_OPTS = {
 export default function NossaHistoria() {
   const [leftRef,  leftIn]  = useInView();
   const [rightRef, rightIn] = useInView();
+  const [playing,  setPlaying] = useState(false);
 
   return (
     <Section id="nossa-historia">
@@ -42,7 +48,14 @@ export default function NossaHistoria() {
 
         <Right ref={rightRef} $inView={rightIn} $delay={150}>
           <VideoWrap>
-            <YouTube videoId="4Se-PKhXZhU" opts={YT_OPTS} />
+            {playing ? (
+              <YouTube videoId={VIDEO_ID} opts={YT_OPTS} />
+            ) : (
+              <Thumb type="button" onClick={() => setPlaying(true)} aria-label="Reproduzir vídeo Nossa História">
+                <ThumbImg src={THUMBNAIL} alt="" loading="lazy" decoding="async" />
+                <PlayBadge aria-hidden="true"><FaPlay /></PlayBadge>
+              </Thumb>
+            )}
           </VideoWrap>
         </Right>
       </Inner>
@@ -136,5 +149,59 @@ const VideoWrap = styled.div`
     left: 0 !important;
     width: 100% !important;
     height: 100% !important;
+  }
+`;
+
+const Thumb = styled.button`
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: var(--navy-deep);
+  -webkit-tap-highlight-color: transparent;
+`;
+
+const ThumbImg = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.82;
+  transition: opacity 0.2s ease;
+
+  ${Thumb}:hover & {
+    opacity: 0.68;
+  }
+`;
+
+const PlayBadge = styled.span`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--amber);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  padding-left: 4px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+  transition: transform 0.2s ease, background 0.2s ease;
+
+  ${Thumb}:hover & {
+    transform: translate(-50%, -50%) scale(1.08);
+    background: #a8781f;
+  }
+
+  @media (max-width: 768px) {
+    width: 54px;
+    height: 54px;
+    font-size: 18px;
   }
 `;

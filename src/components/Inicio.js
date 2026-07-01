@@ -2,9 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import styled, { css, keyframes } from 'styled-components';
 import logo from '../assets/images/newLogoWhiteNoBG.png';
 
-import mobile1 from '../assets/images/background mobile 1.png';
-import mobile2 from '../assets/images/background mobile 2.png';
-import mobile3 from '../assets/images/background mobile 3.png';
+import mobile1 from '../assets/images/background mobile 1.webp';
+import mobile2 from '../assets/images/background mobile 2.webp';
+import mobile3 from '../assets/images/background mobile 3.webp';
 
 const MOBILE_IMAGES = [mobile1, mobile2, mobile3];
 
@@ -54,6 +54,25 @@ export default function Inicio() {
       }, 700);
     }, 5500);
     return () => clearInterval(tick);
+  }, [isMobile]);
+
+  // Pausa o vídeo de fundo quando o hero sai da tela, evitando decodificação contínua desnecessária.
+  useEffect(() => {
+    if (isMobile) return;
+    const video = videoRef.current;
+    if (!video) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    obs.observe(video);
+    return () => obs.disconnect();
   }, [isMobile]);
 
   return (
