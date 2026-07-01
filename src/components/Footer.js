@@ -9,6 +9,7 @@ const FOOTER_LINKS = [
   { label: 'Valores',        id: 'valores' },
   { label: 'Nossa História', id: 'nossa-historia' },
   { label: 'Segmentos',      id: 'segmentos' },
+  { label: 'Área de Atuação', id: 'area-atuacao' },
   // { label: 'Clientes',       id: 'clientes' },
   { label: 'Contato',        id: 'contato' },
 ];

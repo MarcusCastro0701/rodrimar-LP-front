@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import AreaAtuacao from '../../components/AreaAtuacao';
 import Clientes from '../../components/Clientes';
 import Contato from '../../components/Contato';
 import Fundador from '../../components/Fundador';
@@ -18,6 +19,7 @@ export default function Timeline() {
       <NossaHistoria />
       <Fundador />
       <Segmentos />
+      <AreaAtuacao />
       {/* <Clientes /> */}
       <Contato />
     </Main>
